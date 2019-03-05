@@ -1,0 +1,23 @@
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  todos:  [Todo!]!
+  createdAt: DateTime!
+}
+
+type Todo {
+  id: ID! @unique
+  description: String!
+  priority: Priority!
+  isCompleted: Boolean! @default(value: "false")
+  createdBy: User!
+  createdAt: DateTime!
+}
+
+enum Priority {
+  LOW
+  MODERATE
+  HIGH
+}

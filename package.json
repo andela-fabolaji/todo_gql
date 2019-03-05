@@ -1,0 +1,20 @@
+{
+  "name": "todo_gql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "graphql-yoga": "^1.17.4",
+    "jsonwebtoken": "^8.5.0",
+    "nodemon": "^1.18.10",
+    "prisma": "^1.27.1",
+    "prisma-client-lib": "^1.27.1"
+  }
+}

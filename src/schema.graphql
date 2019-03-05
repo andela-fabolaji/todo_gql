@@ -1,0 +1,70 @@
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  todos: [Todo!]!
+}
+
+type Todo {
+  id: ID!
+  description: String!
+  priority: Priority!
+  isCompleted: Boolean
+  createdBy: User!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+input signupInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input loginInput {
+  email: String!
+  password: String!
+}
+
+input updateUserInput {
+  name: String
+  password: String
+}
+
+input createTodoInput {
+  description: String!
+  priority: Priority!
+}
+
+input updateTodoInput {
+  description: String
+  priority: Priority!
+}
+
+type Query {
+  allTodos: [Todo!]!
+  getTodo(id: ID!): Todo!
+}
+
+type Mutation {
+  signup(data: signupInput): AuthPayload
+  login(data: loginInput): AuthPayload
+  updateUser(id: ID!, data: updateUserInput): User!
+  createTodo(data: createTodoInput): Todo!
+  updateTodo(id: ID!, data: updateTodoInput): Todo!
+  deleteTodo(id: ID!): Todo!
+}
+
+type Subscription {
+  todoSubscription: Todo!
+}
+
+enum Priority {
+  LOW
+  MODERATE
+  HIGH
+}
